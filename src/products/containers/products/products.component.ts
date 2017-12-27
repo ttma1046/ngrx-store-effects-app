@@ -7,7 +7,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import * as fromStore from '../../store';
 
-@Component({
+@Component({  
   selector: 'products',
   styleUrls: ['products.component.scss'],
   templateUrl: './products.component.html',
@@ -32,5 +32,7 @@ export class ProductsComponent implements OnInit {
     */
 
     this.pizzas$ = this.store.select(fromStore.getAllPizzas);
+
+    this.store.dispatch(new fromStore.LoadPizzas());
   }
 }
