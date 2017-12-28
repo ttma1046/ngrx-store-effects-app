@@ -15,7 +15,7 @@ import * as fromStore from '../../store';
 export class ProductsComponent implements OnInit {
   pizzas$: Observable<Pizza[]>;
 
-  constructor(private store: Store<fromStore.ProductsState) {}
+  constructor(private store: Store<fromStore.ProductsState>) {}
 
   ngOnInit() {
     /*
