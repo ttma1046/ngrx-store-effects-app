@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Effect, Actions } from '@ngrx/effects';
 import { map, switchMap, catchError } from 'rxjs/operators';
 import { of } from 'rxjs/observable/of';
-
 import * as toppingActions from '../actions/toppings.action';
 
 import * as fromServices from '../../services';

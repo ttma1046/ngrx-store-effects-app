@@ -7,6 +7,9 @@ import { PizzasService } from '../../services/pizzas.service';
 import { Topping } from '../../models/topping.model';
 import { ToppingsService } from '../../services/toppings.service';
 
+import { Observable } from 'rxjs';
+
+
 @Component({
   selector: 'product-item',
   styleUrls: ['product-item.component.scss'],
@@ -14,8 +17,8 @@ import { ToppingsService } from '../../services/toppings.service';
     <div 
       class="product-item">
       <pizza-form
-        [pizza]="pizza"
-        [toppings]="toppings"
+        [pizza]="pizza$ | async"
+        [toppings]="toppings$ | async"
         (selected)="onSelect($event)"
         (create)="onCreate($event)"
         (update)="onUpdate($event)"
@@ -28,9 +31,10 @@ import { ToppingsService } from '../../services/toppings.service';
   `,
 })
 export class ProductItemComponent implements OnInit {
-  pizza: Pizza;
+  pizza$: Observable<Pizza>;
   visualise: Pizza;
-  toppings: Topping[];
+  toppings$: Observable<Topping[]>;
+
 
   constructor(
     private pizzaService: PizzasService,
@@ -40,6 +44,10 @@ export class ProductItemComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.store.dispatch(new fromStore.LoadToppings());
+    this.pizza$ = this.store.select(fromStore.getSelectedPizza);
+    this.toppings$ = this.store.select(fromStore.getAllToppings);
+    /*
     this.pizzaService.getPizzas().subscribe(pizzas => {
       const param = this.route.snapshot.params.id;
       let pizza;
@@ -54,9 +62,11 @@ export class ProductItemComponent implements OnInit {
         this.onSelect(toppings.map(topping => topping.id));
       });
     });
+    */
   }
 
   onSelect(event: number[]) {
+    /*
     let toppings;
     if (this.toppings && this.toppings.length) {
       toppings = event.map(id =>
@@ -66,6 +76,7 @@ export class ProductItemComponent implements OnInit {
       toppings = this.pizza.toppings;
     }
     this.visualise = { ...this.pizza, toppings };
+    */
   }
 
   onCreate(event: Pizza) {
