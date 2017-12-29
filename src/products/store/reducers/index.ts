@@ -11,13 +11,12 @@ export interface ProductsState {
 export const reducers: ActionReducerMap<ProductsState> = {
     pizzas: fromPizzas.reducer,
     toppings: fromToppings.reducer
-
 }
 
 export const getProductsState = createFeatureSelector<ProductsState>(
     'products'
     );
-
+/*
 export const getPizzaState = createSelector(
     getProductsState,
     (state: ProductsState) => state.pizzas
@@ -32,7 +31,7 @@ export const getAllPizzas = createSelector(getPizzasEntities, (entities) => {
 export const getPizzasLoaded = createSelector(getPizzaState, fromPizzas.getPizzasLoaded);
 
 export const getPizzasLoading = createSelector(getPizzaState, fromPizzas.getPizzasLoading);
-
+*/
 
 /*
 const state: { products: ProductsState } = {

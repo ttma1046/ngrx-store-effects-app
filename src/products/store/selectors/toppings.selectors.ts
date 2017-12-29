@@ -1,4 +1,4 @@
-import { createSelector } from '@ngrx/store';
+ import { createSelector } from '@ngrx/store';
 
 import * as fromRoot from '../../../app/store';
 import * as fromFeature from '../reducers';
@@ -25,6 +25,11 @@ export const getToppingEntities = createSelector(
     getToppingsState,
     fromToppings.getToppingsEntities
 );
+
+export const getSelectedToppings = createSelector(
+    getToppingsState,
+    fromToppings.getSelectedToppings
+)
 
 export const getAllToppings = createSelector(
     getToppingEntities,
