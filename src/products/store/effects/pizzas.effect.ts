@@ -1,3 +1,4 @@
+import { UpdatePizzaFail } from './../actions/pizzas.action';
 import { Injectable } from '@angular/core';
 
 import { Effect, Actions } from '@ngrx/effects';
@@ -39,6 +40,34 @@ export class PizzasEffects {
                         catchError(error => of(new pizzaActions.CreatePizzaFail(pizza)))
                     )
                })
+            );
+
+    @Effect()
+    updatePizzas$ = this.actions$.ofType(pizzaActions.UPDATE_PIZZA)
+        .pipe(
+            map((action: pizzaActions.UpdatePizza) => action.payload),
+            switchMap(pizza => {
+                    return this.pizzaService
+                    .updatePizza(pizza)
+                    .pipe(
+                        map(pizza => new pizzaActions.UpdatePizzaSuccess(pizza)),
+                        catchError(error => of(new pizzaActions.UpdatePizzaFail(pizza)))
+                    )
+                })
+            );
+
+    @Effect()
+    removePizzas$ = this.actions$.ofType(pizzaActions.REMOVE_PIZZA)
+        .pipe(
+            map((action: pizzaActions.RemovePizza) => action.payload),
+            switchMap(pizza => {
+                    return this.pizzaService
+                    .removePizza(pizza)
+                    .pipe(
+                        map(() => new pizzaActions.RemovePizzaSuccess(pizza)),
+                        catchError(error => of(new pizzaActions.RemovePizzaFail(pizza)))
+                    )
+                })
             );
 }
 
