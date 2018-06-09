@@ -1,18 +1,12 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-
 import { Store } from '@ngrx/store';
 
 import { Pizza } from '../../models/pizza.model';
-import { PizzasService } from '../../services/pizzas.service';
-
 import { Topping } from '../../models/topping.model';
-import { ToppingsService } from '../../services/toppings.service';
+import * as fromStore from '../../store';
 
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-
-import * as fromStore from '../../store';
 
 @Component({
   selector: 'product-item',
@@ -38,7 +32,6 @@ export class ProductItemComponent implements OnInit {
   pizza$: Observable<Pizza>;
   visualise$: Observable<Pizza>;
   toppings$: Observable<Topping[]>;
-
 
   constructor(
     /*

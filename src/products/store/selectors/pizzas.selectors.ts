@@ -41,3 +41,15 @@ export const getAllPizzas = createSelector(getPizzasEntities, (entities) => {
 export const getPizzasLoaded = createSelector(getPizzaState, fromPizzas.getPizzasLoaded);
 
 export const getPizzasLoading = createSelector(getPizzaState, fromPizzas.getPizzasLoading);
+
+/*
+const state: { products: ProductsState } = {
+    products: {
+        pizzas: {
+            data: [],
+            loaded: false,
+            loading: false
+        }
+    }
+}
+*/
