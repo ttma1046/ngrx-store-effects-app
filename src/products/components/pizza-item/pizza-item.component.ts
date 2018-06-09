@@ -30,12 +30,11 @@ export class PizzaItemComponent implements OnInit {
   pizzas$: Observable<Pizza>;
   visualise: Pizza;
   toppings: Topping[];
-  
+  @Input() pizza: Pizza;
   constructor(private store: Store<fromStore.ProductsState>) {}
 
   ngOnInit() {
+    this.pizzas$ = this.store.select(fromStore.getPizzasEntities);
     this.store.dispatch(new fromStore.LoadToppings());
-    this.pizzas$ = this.store.select(fromStore.getSelectedPizzas);
-
   }
 }

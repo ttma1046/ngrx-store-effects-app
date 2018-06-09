@@ -34,13 +34,22 @@ export const getPizzaVisualised = createSelector(
     }
 );
 
-export const getAllPizzas = createSelector(getPizzasEntities, (entities) => {
-    return Object.keys(entities).map(id => entities[parseInt(id, 10)]);
-});
+export const getAllPizzas = createSelector(
+    getPizzasEntities,
+    (entities) => {
+        return Object.keys(entities).map(id => entities[parseInt(id, 10)]);
+    }
+);
 
-export const getPizzasLoaded = createSelector(getPizzaState, fromPizzas.getPizzasLoaded);
+export const getPizzasLoaded = createSelector(
+    getPizzaState,
+    fromPizzas.getPizzasLoaded
+);
 
-export const getPizzasLoading = createSelector(getPizzaState, fromPizzas.getPizzasLoading);
+export const getPizzasLoading = createSelector(
+    getPizzaState,
+    fromPizzas.getPizzasLoading
+);
 
 /*
 const state: { products: ProductsState } = {

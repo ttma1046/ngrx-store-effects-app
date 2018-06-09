@@ -7,7 +7,7 @@ import { Pizza } from '../../models/pizza.model';
 
 import * as fromStore from '../../store';
 
-@Component({  
+@Component({
   selector: 'products',
   styleUrls: ['products.component.scss'],
   templateUrl: './products.component.html',
@@ -15,7 +15,7 @@ import * as fromStore from '../../store';
 export class ProductsComponent implements OnInit {
   pizzas$: Observable<Pizza[]>;
 
-  constructor(private store: Store<fromStore.ProductsState>) {}
+  constructor(private store: Store<fromStore.ProductsState>) { }
 
   ngOnInit() {
     /*
