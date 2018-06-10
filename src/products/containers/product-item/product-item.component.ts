@@ -44,7 +44,7 @@ export class ProductItemComponent implements OnInit {
     private store: Store<fromStore.ProductsState>) {}
 
   ngOnInit() {
-    // this.store.dispatch(new fromStore.LoadToppings());
+    this.store.dispatch(new fromStore.LoadToppings());
     this.pizza$ = this.store.select(fromStore.getSelectedPizza)
     /*
     .pipe(
@@ -109,7 +109,7 @@ export class ProductItemComponent implements OnInit {
     this.pizzaService.updatePizza(event).subscribe(() => {
       this.router.navigate([`/products`]);
     });
-    */
+    */ 
   }
 
   onRemove(event: Pizza) {
