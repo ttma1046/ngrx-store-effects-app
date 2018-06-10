@@ -35,6 +35,6 @@ export class ProductsComponent implements OnInit {
 
     this.store.dispatch(new fromStore.LoadPizzas());
 
-    // this.store.dispatch(new fromStore.LoadToppings());
+    this.store.dispatch(new fromStore.LoadToppings());
   }
 }

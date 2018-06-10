@@ -44,11 +44,8 @@ export class ProductItemComponent implements OnInit {
     private store: Store<fromStore.ProductsState>) {}
 
   ngOnInit() {
-    this.store.dispatch(new fromStore.LoadToppings());
-    this.pizza$ = this.store.select(fromStore.getSelectedPizza)
-    /*
-    .pipe(
-      
+    // this.store.dispatch(new fromStore.LoadToppings());
+    this.pizza$ = this.store.select(fromStore.getSelectedPizza).pipe(
       tap((pizza: Pizza = null) => {
         // '/products/new'
         const pizzaExists = !!(pizza && pizza.toppings);
@@ -56,10 +53,10 @@ export class ProductItemComponent implements OnInit {
         this.store.dispatch(new fromStore.VisualiseToppings(toppings));
       })
     );
-    */
     
-    // this.toppings$ = this.store.select(fromStore.getAllToppings);
-    // this.visualise$ = this.store.select(fromStore.getPizzaVisualised);
+    this.toppings$ = this.store.select(fromStore.getAllToppings);
+    this.visualise$ = this.store.select(fromStore.getPizzaVisualised);
+
     /*
     this.pizzaService.getPizzas().subscribe(pizzas => {
       const param = this.route.snapshot.params.id;

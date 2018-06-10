@@ -25,15 +25,12 @@ export function reducer(state = initialState, action: fromToppings.ToppingsActio
                 selectedToppings
             }
         }
-
-
         case fromToppings.LOAD_TOPPINGS: {
              return {
                  ...state,
                  loading: true,
              }
         }
-
         case fromToppings.LOAD_TOPPINGS_SUCCESS: {
             const toppings = action.payload;
 
@@ -55,8 +52,7 @@ export function reducer(state = initialState, action: fromToppings.ToppingsActio
                 loaded: true,
                 entities
             }
-        }
-        
+        }        
         case fromToppings.LOAD_TOPPINGS_FAIL: {
             return {
                 ...state,
@@ -64,10 +60,6 @@ export function reducer(state = initialState, action: fromToppings.ToppingsActio
                 loaded: false
             }
         }
-        default:
-            // code...
-            break;
-
     }
 
 

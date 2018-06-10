@@ -4,8 +4,8 @@ import * as fromPizzas from './pizzas.reducer';
 import * as fromToppings from './toppings.reducer';
 
 export interface ProductsState {
-    pizzas: fromPizzas.PizzaState,
-    toppings: fromToppings.ToppingsState
+    pizzas: fromPizzas.PizzaState;
+    toppings: fromToppings.ToppingsState;
 }
 
 export const reducers: ActionReducerMap<ProductsState> = {

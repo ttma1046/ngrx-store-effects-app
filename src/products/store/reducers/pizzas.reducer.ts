@@ -85,9 +85,6 @@ export function reducer(state = initialState, action: fromPizzas.PizzasAction): 
                 entities
             }
         }
-        default:
-            // code...
-            break;
     }
 
     return state;
