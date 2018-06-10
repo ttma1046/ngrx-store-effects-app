@@ -10,7 +10,6 @@ import * as fromStore from '../../store';
 
 @Component({
   selector: 'pizza-item',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['pizza-item.component.scss'],
   template: `
     <div class="pizza-item">
@@ -27,14 +26,14 @@ import * as fromStore from '../../store';
   `,
 })
 export class PizzaItemComponent implements OnInit {
-  pizzas$: Observable<Pizza>;
-  visualise: Pizza;
-  toppings: Topping[];
+  // pizzas$: Observable<Pizza>;
+  // visualise: Pizza;
+  // toppings: Topping[];
   @Input() pizza: Pizza;
   constructor(private store: Store<fromStore.ProductsState>) {}
 
   ngOnInit() {
-    this.pizzas$ = this.store.select(fromStore.getPizzasEntities);
-    this.store.dispatch(new fromStore.LoadToppings());
+    // this.pizzas$ = this.store.select(fromStore.getPizzasEntities);
+    // this.store.dispatch(new fromStore.LoadToppings());
   }
 }

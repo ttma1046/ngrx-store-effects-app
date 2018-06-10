@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 
 import { Pizza } from '../../models/pizza.model';
 import { Topping } from '../../models/topping.model';
+
 import * as fromStore from '../../store';
 
 import { Observable } from 'rxjs';
@@ -44,7 +45,10 @@ export class ProductItemComponent implements OnInit {
 
   ngOnInit() {
     // this.store.dispatch(new fromStore.LoadToppings());
-    this.pizza$ = this.store.select(fromStore.getSelectedPizza).pipe(
+    this.pizza$ = this.store.select(fromStore.getSelectedPizza)
+    /*
+    .pipe(
+      
       tap((pizza: Pizza = null) => {
         // '/products/new'
         const pizzaExists = !!(pizza && pizza.toppings);
@@ -52,8 +56,10 @@ export class ProductItemComponent implements OnInit {
         this.store.dispatch(new fromStore.VisualiseToppings(toppings));
       })
     );
-    this.toppings$ = this.store.select(fromStore.getAllToppings);
-    this.visualise$ = this.store.select(fromStore.getPizzaVisualised);
+    */
+    
+    // this.toppings$ = this.store.select(fromStore.getAllToppings);
+    // this.visualise$ = this.store.select(fromStore.getPizzaVisualised);
     /*
     this.pizzaService.getPizzas().subscribe(pizzas => {
       const param = this.route.snapshot.params.id;
@@ -73,6 +79,8 @@ export class ProductItemComponent implements OnInit {
   }
 
   onSelect(event: number[]) {
+    this.store.dispatch(new fromStore.VisualiseToppings(event));
+
     /*
     let toppings;
     if (this.toppings && this.toppings.length) {
@@ -84,10 +92,6 @@ export class ProductItemComponent implements OnInit {
     }
     this.visualise = { ...this.pizza, toppings };
     */
-
-    this.store.dispatch(new fromStore.VisualiseToppings(event));
-
-
   }
 
   onCreate(event: Pizza) {
