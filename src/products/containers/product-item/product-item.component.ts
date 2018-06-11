@@ -11,6 +11,7 @@ import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'product-item',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['product-item.component.scss'],
   template: `
     <div 

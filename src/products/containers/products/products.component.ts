@@ -9,6 +9,7 @@ import * as fromStore from '../../store';
 
 @Component({
   selector: 'products',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['products.component.scss'],
   templateUrl: './products.component.html',
 })
@@ -35,6 +36,6 @@ export class ProductsComponent implements OnInit {
 
     // this.store.dispatch(new fromStore.LoadPizzas());
 
-    this.store.dispatch(new fromStore.LoadToppings());
+    // this.store.dispatch(new fromStore.LoadToppings());
   }
 }
